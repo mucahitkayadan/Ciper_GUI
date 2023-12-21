@@ -226,7 +226,7 @@ if 'text_input_state' not in st.session_state:
     st.session_state.text_input_state = ""
 if 'text_input_state_mode' not in st.session_state:
     st.session_state.text_input_state_mode = "🔒 Encryption"
-
+    st.session_state.text_input_state
 st.title("Vigenere Cipher Game")
 
 def generate_vigenere_table():
