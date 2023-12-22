@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rail Fence Cipher Overview</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    h1, h2, h3 {
+      color: #333;
+    }
+
+    p {
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Rail Fence Cipher Overview</h1>
+
+  <h2>Introduction</h2>
+  <p>The Rail Fence Cipher is a transposition cipher that encrypts and decrypts messages by arranging characters in a zigzag pattern.</p>
+
+  <h2>How It Works</h2>
+  <p>The plaintext is written out in a zigzag pattern across a certain number of "rails" or lines. The ciphertext is then read off from the zigzag pattern.</p>
+
+  <h2>Encrypting</h2>
+  <p>To encrypt a message, the sender chooses the number of rails and writes the message in a zigzag pattern accordingly.</p>
+
+  <h2>Decrypting</h2>
+  <p>To decrypt, the receiver sets up the same zigzag pattern with the correct number of rails and reads off the message from the pattern.</p>
+
+  <h2>Example</h2>
+  <p>For example, with the message "HELLOWORLD" and 3 rails:</p>
+  <pre>
+    H   O   L   O   L   W   R   D
+     E L W R D
+      L   O   L
+  </pre>
+  <p>The ciphertext would be "HOLELWRDLOL".</p>
+
+  <h2>Security Considerations</h2>
+  <p>The Rail Fence Cipher is a simple transposition cipher and is not considered secure for transmitting sensitive information.</p>
+
+  <p>It can be easily broken with techniques like frequency analysis.</p>
+
+  <h2>Conclusion</h2>
+  <p>The Rail Fence Cipher, while interesting in its approach, is not recommended for secure communication. Modern cryptographic methods employ more robust encryption techniques.</p>
+
+</body>
+</html>
