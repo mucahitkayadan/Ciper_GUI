@@ -13,7 +13,7 @@ class WelcomeScreen(QDialog):
         self.widget = widget
 
     def go_to_login(self):
-        login = LoginScreen()
+        login = LoginScreen(self.widget)
         self.widget.addWidget(login)
         self.widget.setCurrentIndex(self.widget.currentIndex() + 1)
 

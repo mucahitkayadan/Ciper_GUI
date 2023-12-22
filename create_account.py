@@ -3,6 +3,7 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QDialog
 import sqlite3
 from fill_profile_screen import FillProfileScreen
+from login_screen import is_valid_email
 
 
 class CreateAccScreen(QDialog):
@@ -18,10 +19,12 @@ class CreateAccScreen(QDialog):
         user = self.emailfield.text()
         password = self.passwordfield.text()
         confirm_password = self.confirmpasswordfield.text()
-
-        if len(user) == 0 or len(password) == 0 or len(confirm_password) == 0:
+        if not is_valid_email(user):
+            self.error.setText("Please enter a valid email address")
+        elif len(password) == 0 or len(confirm_password) == 0:
             self.error.setText("Please fill in all inputs.")
-
+        # elif len(password) < 8 or len(confirm_password) > 15:
+        #     self.error.setText("Password has to be between 8 and 15 characters.")
         elif password != confirm_password:
             self.error.setText("Passwords do not match.")
         else:
@@ -29,7 +32,7 @@ class CreateAccScreen(QDialog):
             cur = conn.cursor()
 
             user_info = [user, password]
-            cur.execute('INSERT INTO login_info (username, password) VALUES (?,?)', user_info)
+            cur.execute('INSERT INTO login_info (email, password) VALUES (?,?)', user_info)
 
             conn.commit()
             conn.close()
