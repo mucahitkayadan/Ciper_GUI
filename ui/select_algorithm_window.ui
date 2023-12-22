@@ -22,7 +22,7 @@ background-color:qlineargradient(spread:pad, x1:0.091, y1:0.101636, x2:0.991379,
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>1221</width>
+     <width>1191</width>
      <height>791</height>
     </rect>
    </property>
@@ -33,21 +33,6 @@ background-color:qlineargradient(spread:pad, x1:0.091, y1:0.101636, x2:0.991379,
     <property name="horizontalSpacing">
      <number>7</number>
     </property>
-    <item row="0" column="2">
-     <widget class="QLabel" name="algoTitle">
-      <property name="font">
-       <font>
-        <family>Perpetua Titling MT</family>
-        <pointsize>14</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>CAESAR CIPHER</string>
-      </property>
-     </widget>
-    </item>
     <item row="1" column="1">
      <layout class="QVBoxLayout" name="verticalLayout">
       <property name="sizeConstraint">
@@ -69,18 +54,6 @@ background-color:qlineargradient(spread:pad, x1:0.091, y1:0.101636, x2:0.991379,
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="vigenere_radio_button">
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Vigenere</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QRadioButton" name="substitution_radio_button">
         <property name="font">
          <font>
@@ -93,7 +66,7 @@ background-color:qlineargradient(spread:pad, x1:0.091, y1:0.101636, x2:0.991379,
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="vigenere_radio_button_2">
+       <widget class="QRadioButton" name="vigenere_radio_button">
         <property name="font">
          <font>
           <pointsize>10</pointsize>
@@ -113,6 +86,18 @@ background-color:qlineargradient(spread:pad, x1:0.091, y1:0.101636, x2:0.991379,
         </property>
         <property name="text">
          <string>Rail Fence</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="rot13_radio_button">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Rot13</string>
         </property>
        </widget>
       </item>
@@ -144,10 +129,55 @@ background-color:qlineargradient(spread:pad, x1:0.091, y1:0.101636, x2:0.991379,
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1073</width>
-         <height>752</height>
+         <width>1043</width>
+         <height>787</height>
         </rect>
        </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="algo_title">
+          <property name="font">
+           <font>
+            <family>Perpetua Titling MT</family>
+            <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>CAESAR CIPHER</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>
