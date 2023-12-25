@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROT13 Cipher Algorithm</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+        font-size: 18px;
+    }
+    h1, h2, p, pre {
+      margin-bottom: 15px;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<h1>ROT13 Cipher Algorithm</h1>
+
+<h2>Algorithm Overview:</h2>
+
+<p>ROT13 is a simple letter substitution cipher that replaces a letter with the 13th letter after it in the alphabet.</p>
+
+<h2>Encryption and Decryption:</h2>
+
+<h3>Process:</h3>
+<p>For each letter in the plaintext, replace it with the letter 13 positions ahead in the alphabet.</p>
+<p>For example, 'A' becomes 'N', 'B' becomes 'O', 'C' becomes 'P', and so on.</p>
+<p>It is its own inverse; that is, to undo ROT13, the same algorithm is applied, so the same action can be used for both encryption and decryption.</p>
+
+<h2>Example:</h2>
+
+<pre>
+Plaintext: "HELLO"
+
+Encryption/Decryption:
+
+H -> U
+E -> R
+L -> Y
+L -> Y
+O -> B
+
+Ciphertext: "URYYB"
+</pre>
+
+<p><strong>Note:</strong> ROT13 is often used for obscuring text for spoilers or hiding answers. It provides very little security and is not suitable for serious encryption purposes.</p>
+
+</body>
+</html>

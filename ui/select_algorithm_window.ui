@@ -35,40 +35,80 @@ background-color:qlineargradient(spread:pad, x1:0.091, y1:0.101636, x2:0.991379,
     </property>
     <item row="0" column="1">
      <widget class="QTabWidget" name="tabWidget">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgba(0,0,0,0);</string>
+      </property>
       <property name="currentIndex">
        <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(0,0,0,0);</string>
+       </property>
        <attribute name="title">
-        <string>Tab 1</string>
+        <string>Description   </string>
        </attribute>
-       <widget class="QScrollArea" name="scrollArea">
+       <widget class="QScrollArea" name="desscription_scroll">
         <property name="geometry">
          <rect>
-          <x>-5</x>
-          <y>1</y>
-          <width>1041</width>
-          <height>771</height>
+          <x>0</x>
+          <y>0</y>
+          <width>1040</width>
+          <height>770</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgba(0,0,0,0)</string>
+         <string notr="true"/>
         </property>
         <property name="widgetResizable">
          <bool>true</bool>
         </property>
         <widget class="QWidget" name="scrollAreaWidgetContents">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
          <property name="geometry">
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>1039</width>
-           <height>769</height>
+           <width>1038</width>
+           <height>768</height>
           </rect>
          </property>
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetDefaultConstraint</enum>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <property name="rightMargin">
+           <number>5</number>
+          </property>
+          <property name="bottomMargin">
+           <number>5</number>
+          </property>
           <item>
-           <widget class="QTextBrowser" name="text_browser">
+           <widget class="QTextBrowser" name="description_text_browser">
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
             <property name="readOnly">
              <bool>true</bool>
             </property>
@@ -87,8 +127,41 @@ p, li { white-space: pre-wrap; }
       </widget>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
-        <string>Tab 2</string>
+        <string>Algorithm   </string>
        </attribute>
+       <widget class="QScrollArea" name="algorithm_scroll">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>1041</width>
+          <height>761</height>
+         </rect>
+        </property>
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents_2">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>1039</width>
+           <height>759</height>
+          </rect>
+         </property>
+         <widget class="QTextBrowser" name="algorithm_text_browser">
+          <property name="geometry">
+           <rect>
+            <x>9</x>
+            <y>9</y>
+            <width>1031</width>
+            <height>751</height>
+           </rect>
+          </property>
+         </widget>
+        </widget>
+       </widget>
       </widget>
      </widget>
     </item>
@@ -101,7 +174,7 @@ p, li { white-space: pre-wrap; }
        <widget class="QRadioButton" name="caesar_radio_button">
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="text">
@@ -116,7 +189,7 @@ p, li { white-space: pre-wrap; }
        <widget class="QRadioButton" name="substitution_radio_button">
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="text">
@@ -128,7 +201,7 @@ p, li { white-space: pre-wrap; }
        <widget class="QRadioButton" name="vigenere_radio_button">
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="text">
@@ -140,7 +213,7 @@ p, li { white-space: pre-wrap; }
        <widget class="QRadioButton" name="rail_fence_radio_button">
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="text">
@@ -152,7 +225,7 @@ p, li { white-space: pre-wrap; }
        <widget class="QRadioButton" name="rot13_radio_button">
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="text">

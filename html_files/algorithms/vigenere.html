@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vigenère Cipher Algorithm</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      font-size: 18px;
+    }
+    h1, h2, p, pre {
+      margin-bottom: 15px;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Vigenère Cipher Algorithm</h1>
+
+<h2>Encryption:</h2>
+
+<h3>Key Generation:</h3>
+<p>Select a keyword, e.g., "KEY."</p>
+<p>Repeat the keyword to match the length of the plaintext. For example, if the plaintext is "HELLO," and the keyword is "KEY," repeat "KEY" to get "KEYKEY."</p>
+<p>The repeated keyword is the key used for encryption.</p>
+
+<h3>Shifting:</h3>
+<p>Assign numerical values to the letters (A=0, B=1, ..., Z=25).</p>
+<p>For each letter in the plaintext, find the corresponding letter in the key.</p>
+<p>Shift the plaintext letter by the numerical value of the key letter. Example: If the plaintext letter is "H" (numerical value 7) and the key letter is "K" (numerical value 10), the encrypted letter is (7 + 10) % 26 = 17, which corresponds to "R."</p>
+
+<h3>Repeat:</h3>
+<p>Continue this process for each letter in the plaintext.</p>
+
+<h2>Decryption:</h2>
+
+<h3>Key Generation:</h3>
+<p>Use the same keyword used for encryption.</p>
+
+<h3>Shifting:</h3>
+<p>For each letter in the ciphertext, find the corresponding letter in the key.</p>
+<p>Shift the ciphertext letter backward by the numerical value of the key letter. Example: If the ciphertext letter is "R" (numerical value 17) and the key letter is "K" (numerical value 10), the decrypted letter is (17 - 10 + 26) % 26 = 7, which corresponds to "H."</p>
+
+<h3>Repeat:</h3>
+<p>Continue this process for each letter in the ciphertext.</p>
+
+<h2>Example:</h2>
+
+<pre>
+Plaintext: "HELLO"
+
+Keyword: "KEY"
+
+Key (repeated): "KEYKEY"
+
+Encryption:
+
+H + K = R
+E + E = Q
+L + Y = X
+L + K = W
+O + E = U
+
+Ciphertext: "RQXWU"
+</pre>
+
+<p><strong>Note:</strong> The Vigenère cipher is more secure than simple substitution ciphers like the Caesar cipher because the shift changes for each letter based on the keyword. However, it can still be vulnerable to cryptanalysis, especially if the keyword is short or if patterns exist in the plaintext. Methods like the Kasiski examination and Friedman test can be employed to break the Vigenère cipher.</p>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Substitution Cipher Algorithm</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      font-size: 18px;
+    }
+    h1, h2, p, pre {
+      margin-bottom: 15px;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Substitution Cipher Algorithm</h1>
+
+<h2>Algorithm Overview:</h2>
+
+<p>The Substitution Cipher is a method of encryption where each letter in the plaintext is replaced with a different letter or symbol.</p>
+
+<h2>Encryption:</h2>
+
+<h3>Key Generation:</h3>
+<p>Create a substitution key that maps each letter of the alphabet to a unique replacement letter or symbol.</p>
+<pre>
+Original:    A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+Substitute:  Q W E R T Y U I O P A S D F G H J K L Z X C V B N M
+</pre>
+
+<h3>Substitution:</h3>
+<p>For each letter in the plaintext, replace it with its corresponding letter in the substitution key. For example, if the plaintext letter is 'H,' replace it with 'I.'</p>
+
+<h3>Repeat:</h3>
+<p>Continue this process for each letter in the plaintext.</p>
+
+<h2>Decryption:</h2>
+
+<h3>Key Generation:</h3>
+<p>Use the same substitution key used for encryption in reverse.</p>
+
+<h3>Substitution:</h3>
+<p>For each letter in the ciphertext, replace it with its corresponding letter in the reverse substitution key.</p>
+
+<h3>Repeat:</h3>
+<p>Continue this process for each letter in the ciphertext.</p>
+
+<h2>Example:</h2>
+
+<pre>
+Plaintext: "HELLO"
+
+Substitution Key:
+
+Original:    A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+Substitute:  Q W E R T Y U I O P A S D F G H J K L Z X C V B N M
+
+Encryption:
+
+H -> I
+E -> R
+L -> Z
+L -> Z
+O -> P
+
+Ciphertext: "IRZZP"
+</pre>
+
+<p><strong>Note:</strong> The strength of the Substitution Cipher depends on the secrecy of the substitution key. However, it is vulnerable to frequency analysis and other cryptanalysis techniques.</p>
+
+</body>
+</html>

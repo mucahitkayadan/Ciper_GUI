@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rail Fence Cipher Algorithm</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      font-size: 18px;
+    }
+    h1, h2, p, pre {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Rail Fence Cipher Algorithm</h1>
+
+<h2>Algorithm Overview:</h2>
+
+<p>The Rail Fence Cipher is a transposition cipher that encrypts by rearranging the letters of the plaintext.</p>
+
+<h2>Encryption:</h2>
+
+<h3>Key Generation:</h3>
+<p>Choose the number of rails, for example, 3.</p>
+
+<h3>Rail Arrangement:</h3>
+<p>Write the plaintext diagonally on a set of "rails" or lines equal to the chosen number. For example:</p>
+
+<pre>
+H - - - O
+- E - L -
+- L - - -
+</pre>
+
+<p>Read the letters in zigzag order to get the ciphertext: "HOELL."</p>
+
+<h2>Decryption:</h2>
+
+<h3>Key Generation:</h3>
+<p>Use the same number of rails used for encryption, e.g., 3.</p>
+
+<h3>Rail Arrangement:</h3>
+<p>Write the ciphertext diagonally on a set of "rails" or lines equal to the chosen number. For example:</p>
+
+<pre>
+H - - - O
+- E - L -
+- L - - -
+</pre>
+
+<p>Fill in the remaining spaces with placeholders. Read the letters in a straight line to get the plaintext: "HELLO."</p>
+
+<h2>Example:</h2>
+
+<pre>
+Plaintext: "HELLO"
+
+Number of Rails: 3
+
+Encryption:
+
+H - - - O
+- E - L -
+- L - - -
+
+Ciphertext: "HOELL"
+</pre>
+
+<p><strong>Note:</strong> The Rail Fence Cipher is a simple transposition cipher. It may not provide strong security, and the security depends on the number of rails used. It can be easily broken with cryptanalysis methods like frequency analysis.</p>
+
+</body>
+</html>

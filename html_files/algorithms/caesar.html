@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caesar Cipher Algorithm</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      font-size: 18px;
+    }
+    h1, h2, p, pre {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Caesar Cipher Algorithm</h1>
+
+<h2>Algorithm Overview:</h2>
+
+<p>The Caesar cipher is a simple substitution cipher where each letter in the plaintext is shifted a certain number of places down or up the alphabet.</p>
+
+<h2>Encryption:</h2>
+
+<h3>Key Generation:</h3>
+<p>Choose a shift value, for example, 3.</p>
+
+<h3>Shifting:</h3>
+<p>Assign numerical values to the letters (A=0, B=1, ..., Z=25).</p>
+<p>For each letter in the plaintext, shift the letter by the chosen value. Example: If the plaintext letter is "H" (numerical value 7) and the shift value is 3, the encrypted letter is (7 + 3) % 26 = 10, which corresponds to "K."</p>
+
+<h3>Repeat:</h3>
+<p>Continue this process for each letter in the plaintext.</p>
+
+<h2>Decryption:</h2>
+
+<h3>Key Generation:</h3>
+<p>Use the same shift value used for encryption.</p>
+
+<h3>Shifting:</h3>
+<p>For each letter in the ciphertext, shift the letter backward by the chosen value. Example: If the ciphertext letter is "K" (numerical value 10) and the shift value is 3, the decrypted letter is (10 - 3 + 26) % 26 = 7, which corresponds to "H."</p>
+
+<h3>Repeat:</h3>
+<p>Continue this process for each letter in the ciphertext.</p>
+
+<h2>Example:</h2>
+
+<pre>
+Plaintext: "HELLO"
+
+Shift: 3
+
+Encryption:
+
+H + 3 = K
+E + 3 = H
+L + 3 = O
+L + 3 = O
+O + 3 = R
+
+Ciphertext: "KHOOR"
+</pre>
+
+<p><strong>Note:</strong> The Caesar cipher is less secure than more complex encryption methods, as it involves a fixed shift value for all letters. It is susceptible to brute-force attacks and frequency analysis.</p>
+
+</body>
+</html>
