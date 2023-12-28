@@ -67,6 +67,15 @@ background-color:qlineargradient(spread:pad, x1:0.091, y1:0.101636, x2:0.991379,
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>MS Shell Dlg 2</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">border-radius:20px;
 background-color: rgb(170, 255, 255);
@@ -74,6 +83,12 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="text">
      <string>Log in</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="emailfield">
@@ -89,6 +104,12 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
      <string notr="true">background-color:rgba(0,0,0,0);
 font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string>Enter your email address here</string>
+    </property>
    </widget>
    <widget class="QLineEdit" name="passwordfield">
     <property name="geometry">
@@ -102,6 +123,9 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
     <property name="styleSheet">
      <string notr="true">background-color:rgba(0,0,0,0);
 font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="placeholderText">
+     <string>Enter your password here</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
