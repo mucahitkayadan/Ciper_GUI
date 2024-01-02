@@ -2,22 +2,6 @@ import codecs
 
 
 class Cipher:
-    def __init__(self):
-        self.encryption_functions = [
-            self.caesar_cipher,
-            self.vigenere_cipher,
-            self.rail_fence_cipher,
-            self.rot13_cipher,
-            self.substitution_cipher
-        ]
-
-    def encrypt(self, text, index, *args):
-        if index < 0 or index >= len(self.encryption_functions):
-            raise ValueError("Invalid index")
-
-        encryption_function = self.encryption_functions[index]
-        return encryption_function(text, *args)
-
     @staticmethod
     def caesar_cipher(text, shift, encrypt=True):
         result = ''
@@ -72,32 +56,22 @@ class Cipher:
 
     @staticmethod
     def substitution_cipher(text, substitution_key, encrypt=True):
+        text = text.upper()  # Convert text to uppercase
+        # Convert substitution key to uppercase
+        substitution_key = {k.upper(): v.upper() for k, v in substitution_key.items()}
+
         if encrypt:
             return ''.join(substitution_key.get(char, char) for char in text)
         else:
             reverse_key = {v: k for k, v in substitution_key.items()}
             return ''.join(reverse_key.get(char, char) for char in text)
 
-    # Decryption methods
-
-    def caesar_decipher(self, text, shift):
-        return self.caesar_cipher(text, shift, encrypt=False)
-
-    def vigenere_decipher(self, text, key):
-        return self.vigenere_cipher(text, key, encrypt=False)
-
-    def rot13_decipher(self, text):
-        return self.rot13_cipher(text)
-
-    def substitution_decipher(self, text, substitution_key):
-        return self.substitution_cipher(text, substitution_key, encrypt=False)
-
 #
 # # Example Usage:
 # cipher_instance = Cipher()
 # # Define the substitution key
 # substitution_key_ = {'A': 'Q', 'B': 'W', 'C': 'E', 'D': 'R',
-#                       'E': 'T', 'F': 'Y', 'G': 'U', 'H': 'I', 'I': 'O', 'J': 'P',
+#                      'E': 'T', 'F': 'Y', 'G': 'U', 'H': 'I', 'I': 'O', 'J': 'P',
 #                      'K': 'A', 'L': 'S', 'M': 'D', 'N': 'F', 'O': 'G', 'P': 'H',
 #                      'Q': 'J', 'R': 'K', 'S': 'L', 'T': 'Z',
 #                      'U': 'X', 'V': 'C', 'W': 'V', 'X': 'B', 'Y': 'N', 'Z': 'M'}

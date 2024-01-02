@@ -100,6 +100,12 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
       <height>51</height>
      </rect>
     </property>
+    <property name="accessibleName">
+     <string notr="true"/>
+    </property>
+    <property name="accessibleDescription">
+     <string notr="true"/>
+    </property>
     <property name="styleSheet">
      <string notr="true">background-color:rgba(0,0,0,0);
 font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
@@ -108,7 +114,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
      <string/>
     </property>
     <property name="placeholderText">
-     <string>Enter your email address here</string>
+     <string notr="true">Enter your email address here</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="passwordfield">
@@ -125,7 +131,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
 font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="placeholderText">
-     <string>Enter your password here</string>
+     <string notr="true">Enter your password here</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">

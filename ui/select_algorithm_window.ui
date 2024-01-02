@@ -127,10 +127,10 @@ background-color:qlineargradient(spread:pad, x1:0.091, y1:0.101636, x2:0.991379,
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgba(0,0,0,0);</string>
+       <string notr="true">background-color: rgb(254, 238, 255);</string>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tab">
        <property name="styleSheet">
@@ -265,7 +265,7 @@ p, li { white-space: pre-wrap; }
          </font>
         </property>
         <property name="text">
-         <string>Please Enter your text here:</string>
+         <string>Please Enter Your Text Here:</string>
         </property>
        </widget>
        <widget class="QScrollArea" name="scrollArea">
@@ -292,16 +292,22 @@ p, li { white-space: pre-wrap; }
          <widget class="QTextEdit" name="application_text_input">
           <property name="geometry">
            <rect>
-            <x>10</x>
+            <x>0</x>
             <y>0</y>
-            <width>971</width>
-            <height>291</height>
+            <width>1001</width>
+            <height>271</height>
            </rect>
           </property>
           <property name="font">
            <font>
             <pointsize>12</pointsize>
            </font>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 255);</string>
           </property>
          </widget>
         </widget>
@@ -310,27 +316,30 @@ p, li { white-space: pre-wrap; }
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>350</y>
+          <y>320</y>
           <width>1001</width>
-          <height>101</height>
+          <height>121</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_2" rowstretch="0,0" columnstretch="0,0,0">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetNoConstraint</enum>
+         </property>
          <property name="leftMargin">
           <number>0</number>
          </property>
-         <item row="0" column="0">
-          <widget class="QRadioButton" name="encrypt_button">
+         <item row="0" column="2">
+          <widget class="QTextEdit" name="key_input">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <pointsize>14</pointsize>
             </font>
-           </property>
-           <property name="text">
-            <string>Encrypt</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -373,7 +382,7 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
          <item row="1" column="0">
           <widget class="QRadioButton" name="decrypt_button">
            <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
@@ -385,16 +394,6 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
            </property>
            <property name="text">
             <string>Decrypt</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="2">
-          <widget class="QTextEdit" name="key_input">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
            </property>
           </widget>
          </item>
@@ -416,6 +415,21 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QRadioButton" name="encrypt_button">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Encrypt</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -446,15 +460,18 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>0</y>
+            <y>10</y>
             <width>1001</width>
-            <height>301</height>
+            <height>291</height>
            </rect>
           </property>
           <property name="font">
            <font>
             <pointsize>12</pointsize>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 255);</string>
           </property>
           <property name="undoRedoEnabled">
            <bool>false</bool>
@@ -473,6 +490,120 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
        <attribute name="title">
         <string>Play Game   </string>
        </attribute>
+       <widget class="QTextEdit" name="game_output_text_edit">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>40</y>
+          <width>1011</width>
+          <height>241</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="placeholderText">
+         <string notr="true"/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>191</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Encrypted Sentence</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="game_guess_button">
+        <property name="geometry">
+         <rect>
+          <x>840</x>
+          <y>610</y>
+          <width>151</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>14</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius:20px;
+background-color: rgb(170, 255, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
+        <property name="text">
+         <string>Guess</string>
+        </property>
+       </widget>
+       <widget class="QTextEdit" name="game_input_text_edit">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>330</y>
+          <width>1011</width>
+          <height>251</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="placeholderText">
+         <string notr="true">Enter your decrypted text here</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="attempt_label">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>620</y>
+          <width>301</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </widget>
      </widget>
     </item>
