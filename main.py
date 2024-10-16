@@ -2,6 +2,17 @@ from PyQt5.QtWidgets import QApplication, QStackedWidget, QDesktopWidget
 from welcome_screen import WelcomeScreen
 import sys
 from PyQt5.QtGui import QIcon
+import logging
+
+# Configure logging
+logging.basicConfig(
+    level=logging.DEBUG,  # Set to DEBUG to capture all levels of log messages
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("app.log"),  # Log to a file
+        logging.StreamHandler()  # Also log to console
+    ]
+)
 
 
 class Main:

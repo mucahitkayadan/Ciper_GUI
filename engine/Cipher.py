@@ -17,6 +17,11 @@ class Cipher:
     def vigenere_cipher(text, key, encrypt=True):
         result = ''
         key_index = 0
+        
+        # Convert key to string if it's an integer
+        if isinstance(key, int):
+            key = str(key)
+        
         for char in text:
             if char.isalpha():
                 offset = ord('A') if char.isupper() else ord('a')
@@ -56,15 +61,34 @@ class Cipher:
 
     @staticmethod
     def substitution_cipher(text, substitution_key, encrypt=True):
-        text = text.upper()  # Convert text to uppercase
-        # Convert substitution key to uppercase
+        result = ""
+        
+        # If substitution_key is an integer, generate a simple substitution key
+        if isinstance(substitution_key, int):
+            alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+            shifted_alphabet = alphabet[substitution_key:] + alphabet[:substitution_key]
+            substitution_key = dict(zip(alphabet, shifted_alphabet))
+        elif isinstance(substitution_key, str):
+            # If it's a string, assume it's a 26-letter key
+            alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+            substitution_key = dict(zip(alphabet, substitution_key.upper()))
+        
+        # Ensure the substitution key is using uppercase letters
         substitution_key = {k.upper(): v.upper() for k, v in substitution_key.items()}
-
-        if encrypt:
-            return ''.join(substitution_key.get(char, char) for char in text)
-        else:
-            reverse_key = {v: k for k, v in substitution_key.items()}
-            return ''.join(reverse_key.get(char, char) for char in text)
+        
+        # Create reverse mapping for decryption
+        reverse_key = {v: k for k, v in substitution_key.items()} if not encrypt else {}
+        
+        for char in text:
+            if char.isalpha():
+                if encrypt:
+                    result += substitution_key.get(char.upper(), char)
+                else:
+                    result += reverse_key.get(char.upper(), char)
+            else:
+                result += char
+        
+        return result
 
 #
 # # Example Usage:

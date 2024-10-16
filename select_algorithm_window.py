@@ -1,4 +1,7 @@
 import random
+import logging
+
+logger = logging.getLogger(__name__)
 
 from PyQt5.QtGui import QColor
 from PyQt5.QtWidgets import QMainWindow, QMessageBox
@@ -67,55 +70,39 @@ class AlgorithmWindow(QMainWindow):
                 break
 
     def update_application(self):
-        self.input_text = self.application_text_input.toPlainText()
-        self.key_text = self.key_input.toPlainText()
+        logger.debug("update_application called")
+        try:
+            self.input_text = self.application_text_input.toPlainText()
+            self.key_text = self.key_input.toPlainText()
 
-        if (not self.input_text or not self.key_text
-            and not self.substitution_radio_button.isChecked()) \
-                and not self.rot13_radio_button.isChecked():
-            self.application_text_output.setTextColor(QColor.fromRgb(255, 0, 0))
-            self.application_text_output.setPlainText("Please fill out text and key!")
-            self.application_text_output.setTextColor(QColor.fromRgb(0, 0, 0))
-            return
-
-        if self.caesar_radio_button.isChecked():
-            try:
-                self.key_text = int(self.key_text)
-                encrypted_text = self.cipher.caesar_cipher(
-                    self.input_text, self.key_text, encrypt=self.encryption_status)
-                self.application_text_output.setPlainText(encrypted_text)
-            except ValueError:
-                QMessageBox.critical(self, "Error", "Key must be an integer.", QMessageBox.Ok)
+            if (not self.input_text or not self.key_text
+                and not self.substitution_radio_button.isChecked()) \
+                    and not self.rot13_radio_button.isChecked():
+                self.application_text_output.setTextColor(QColor.fromRgb(255, 0, 0))
+                self.application_text_output.setPlainText("Please fill out text and key!")
+                self.application_text_output.setTextColor(QColor.fromRgb(0, 0, 0))
+                logger.warning("Text or key missing")
                 return
 
-        if self.vigenere_radio_button.isChecked():
-            encrypted_text = self.cipher.vigenere_cipher(self.input_text, self.key_text, encrypt=self.encryption_status)
-            self.application_text_output.setPlainText(encrypted_text)
+            if self.caesar_radio_button.isChecked():
+                try:
+                    self.key_text = int(self.key_text)
+                    encrypted_text = self.cipher.caesar_cipher(
+                        self.input_text, self.key_text, encrypt=self.encryption_status)
+                    self.application_text_output.setPlainText(encrypted_text)
+                    logger.info("Caesar cipher applied")
+                except ValueError:
+                    QMessageBox.critical(self, "Error", "Key must be an integer.", QMessageBox.Ok)
+                    logger.error("Key must be an integer")
+                    return
 
-        if self.substitution_radio_button.isChecked():
-            # Define the substitution key
-            substitution_key = {'A': 'Q', 'B': 'W', 'C': 'E', 'D': 'R', 'E': 'T',
-                                'F': 'Y', 'G': 'U', 'H': 'I', 'I': 'O', 'J': 'P',
-                                'K': 'A', 'L': 'S', 'M': 'D', 'N': 'F', 'O': 'G',
-                                'P': 'H', 'Q': 'J', 'R': 'K', 'S': 'L', 'T': 'Z',
-                                'U': 'X', 'V': 'C', 'W': 'V', 'X': 'B', 'Y': 'N', 'Z': 'M'}
-            encrypted_text = self.cipher.substitution_cipher(
-                self.input_text, substitution_key, encrypt=self.encryption_status)
-            self.application_text_output.setPlainText(encrypted_text)
-
-        if self.rot13_radio_button.isChecked():
-            encrypted_text = self.cipher.rot13_cipher(self.input_text)
-            self.application_text_output.setPlainText(encrypted_text)
-
-        if self.rail_fence_radio_button.isChecked():
-            try:
-                self.key_text = int(self.key_text)
-                encrypted_text = self.cipher.rail_fence_cipher(
-                    self.input_text, self.key_text, encrypt=self.encryption_status)
+            if self.vigenere_radio_button.isChecked():
+                encrypted_text = self.cipher.vigenere_cipher(self.input_text, self.key_text, encrypt=self.encryption_status)
                 self.application_text_output.setPlainText(encrypted_text)
-            except ValueError:
-                QMessageBox.critical(self, "Error", "Key must be an integer.", QMessageBox.Ok)
-                return
+                logger.info("Vigenère cipher applied")
+
+        except Exception as e:
+            logger.exception("Exception occurred in update_application")
 
     def set_encryption_status(self, value):
         self.encryption_status = value
@@ -155,33 +142,23 @@ class AlgorithmWindow(QMainWindow):
 
         return hint_text
 
-    def get_encrypted_sentence(self, sentence):
-        encrypted_sentence = sentence
-        cipher_name = None
-        for i, radio_button in enumerate(self.radio_buttons):
-            if radio_button.isChecked():
-                cipher_name = self.html_elements[i] + '_cipher'
-        # Use getattr to get the method by name
-        method_to_call = getattr(self.cipher, cipher_name, None)
-        # Check if the method exists
-        if method_to_call is not None and callable(method_to_call):
-            encrypted_sentence = method_to_call(sentence, 1, encrypt=True)  # Call the method
+    def apply_cipher(self, text, encrypt=True):
+        selected_algorithm = self.get_selected_algorithm()
+        method_to_call = getattr(Cipher, f"{selected_algorithm}_cipher")
+        
+        if selected_algorithm == 'rot13':
+            return method_to_call(text)
         else:
-            print(f"Method '{cipher_name}' not found in Cipher class")
-        return encrypted_sentence
+            return method_to_call(text, 1, encrypt=encrypt)
+
+    def get_encrypted_sentence(self, sentence):
+        return self.apply_cipher(sentence, encrypt=True)
 
     def get_original_sentence(self, encrypted_sentence):
-        cipher_name = None
+        return self.apply_cipher(encrypted_sentence, encrypt=False)
+
+    def get_selected_algorithm(self):
         for i, radio_button in enumerate(self.radio_buttons):
             if radio_button.isChecked():
-                cipher_name = self.html_elements[i] + '_cipher'
-                break
-
-        method_to_call = getattr(self.cipher, cipher_name, None)
-        if method_to_call is not None and callable(method_to_call):
-            original_sentence = method_to_call(encrypted_sentence, 1, encrypt=False)
-        else:
-            print(f"Method '{cipher_name}' not found in Cipher class")
-            original_sentence = encrypted_sentence
-
-        return original_sentence
+                return self.html_elements[i]
+        return None

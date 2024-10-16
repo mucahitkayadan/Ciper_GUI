@@ -1,2 +1,33 @@
 .git
 .idea
+.cadence
+*__pycache__
+# Ignore all __pycache__ directories
+__pycache__/
+
+# Ignore all .pyc files
+*.pyc
+
+# Ignore all .pyo files
+*.pyo
+
+# Ignore all .pyd files
+*.pyd
+
+# Ignore all .so files
+*.so
+
+# Ignore the entire .pytest_cache directory
+.pytest_cache/
+
+# Ignore virtual environment directories (if you're using venv or virtualenv)
+venv/
+.venv/
+env/
+
+*.log
+
+*.db
+
+# Ignore credentials database
+credentials.db
